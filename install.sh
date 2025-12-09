@@ -1,30 +1,30 @@
 ###################################
 # Prerequisites
 
-# Update the list of packages
+# Actualiza la lista de paquetes, actualiza los repositorios para saber qué paquetes están disponibles.
 sudo apt-get update
 
-# Install pre-requisite packages.
+# Instala paquetes necesarios, instala herramientas necesarias como wget y soporte para HTTPS.
 sudo apt-get install -y wget apt-transport-https software-properties-common
 
-# Get the version of Ubuntu
+# Obtiene la versión de Ubuntu, carga variables del sistema para saber tu versión de Ubuntu.
 source /etc/os-release
 
-# Download the Microsoft repository keys
+# Descarga las llaves del repositorio de Microsoft, descarga el archivo .deb que permite usar repositorios de Microsoft.
 wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
 
-# Register the Microsoft repository keys
+# Registra las llaves del repositorio, instala ese archivo para agregar el repositorio de Microsoft.
 sudo dpkg -i packages-microsoft-prod.deb
 
-# Delete the Microsoft repository keys file
+# Borra el archivo de llaves, elimina el archivo descargado porque ya no se necesita.
 rm packages-microsoft-prod.deb
 
-# Update the list of packages after we added packages.microsoft.com
+# Actualizar la lista de paquetes después de que agregamos packages.microsoft.com, actualiza repositorios
 sudo apt-get update
 
 ###################################
-# Install PowerShell
+# Instala PowerShell
 sudo apt-get install -y powershell
 
-# Start PowerShell
+# Inicia PowerShell
 pwsh
